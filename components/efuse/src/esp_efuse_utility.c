@@ -211,7 +211,8 @@ void esp_efuse_utility_burn_efuses(void)
     }
 #else
     // Update Efuse timing configuration
-    uint32_t apb_freq_mhz = esp_clk_apb_freq() / 1000000;
+    // uint32_t apb_freq_mhz = esp_clk_apb_freq() / 1000000;
+    uint32_t apb_freq_mhz = 80;
     uint32_t clk_sel0, clk_sel1, dac_clk_div;
     if (apb_freq_mhz <= 26) {
         clk_sel0 = 250;
