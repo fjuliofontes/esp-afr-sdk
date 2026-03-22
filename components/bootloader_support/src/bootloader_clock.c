@@ -59,3 +59,14 @@ void bootloader_clock_configure()
     }
 #endif
 }
+
+//ESP Patch for efuse build issues
+//Refer: https://protect-eu.mimecast.com/s/1wpoC8MVvhAyPyBInbLMe?domain=github.com
+#ifdef BOOTLOADER_BUILD
+
+int esp_clk_apb_freq(void)
+{
+    return rtc_clk_apb_freq_get();
+}
+
+#endif // BOOTLOADER_BUILD
